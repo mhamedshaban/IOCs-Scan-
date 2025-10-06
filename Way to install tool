@@ -1,0 +1,129 @@
+🧩 IOC Automation Tool — Local Installation Guide (Windows)
+
+Prepared by: Mohammed Shaaban
+Purpose: Enable each team member to install and run the IOC Automation Tool on their own machine.
+
+⚙️ Step 1 – Download Project Files
+
+Ask each team member to download or copy the following files from the shared folder:
+
+ioc_app.py
+requirements.txt
+sample_ioc.xlsx   (optional test file)
+
+
+Place them in a folder such as:
+
+C:\IOC_Tool
+
+🐍 Step 2 – Install Python
+
+Go to https://www.python.org/downloads/
+.
+
+Download Python 3.10 or newer.
+
+During installation, check the box ✅ “Add Python to PATH”.
+
+Click Install Now and wait for setup to finish.
+
+Confirm it’s installed correctly by opening Command Prompt and typing:
+
+python --version
+
+📦 Step 3 – Open Command Prompt in the Folder
+
+Press Shift + Right-click inside C:\IOC_Tool.
+
+Choose “Open PowerShell window here” or “Open in Terminal”.
+
+You’ll now be inside the correct directory.
+
+🧱 Step 4 – Create a Virtual Environment
+
+This keeps dependencies clean and separate for each user.
+
+python -m venv .venv
+
+
+Then activate it:
+
+.\.venv\Scripts\activate
+
+
+(You should see something like (venv) appear at the start of your command line.)
+
+📚 Step 5 – Install Required Libraries
+
+Install everything listed in requirements.txt:
+
+pip install -r requirements.txt
+
+
+If you face issues, install manually:
+
+pip install streamlit pandas openpyxl
+
+
+(Skip google-generativeai if you’re not using Gemini API.)
+
+🚀 Step 6 – Run the Tool
+
+While still in the same terminal and virtual environment, run:
+
+streamlit run ioc_app.py
+
+
+Then open your browser and go to:
+
+http://localhost:8501
+
+
+✅ You should now see the IOC Automation Tool interface.
+
+📂 Step 7 – Use the Tool
+
+Click Browse files and select your IOC Excel file.
+
+The app will automatically:
+
+Extract all IOCs.
+
+Classify them into IP, Domain, and Hash.
+
+Remove duplicates.
+
+You can download clean .txt files for each category.
+
+🧩 Step 8 – Troubleshooting
+Issue	Cause	Fix
+Streamlit not found	Not installed	pip install streamlit
+“openpyxl not found”	Missing Excel library	pip install openpyxl
+App doesn’t open	Port issue	Try: streamlit run ioc_app.py --server.port 8502
+Command not recognized	Python not added to PATH	Reinstall Python with “Add to PATH” checked
+✅ Summary Table
+Step	Task	Command
+1	Download files	Copy to C:\IOC_Tool
+2	Install Python	From python.org
+3	Open terminal	Shift + Right-click → Open PowerShell
+4	Create venv	python -m venv .venv
+5	Activate venv	.\.venv\Scripts\activate
+6	Install libs	pip install -r requirements.txt
+7	Run app	streamlit run ioc_app.py
+8	Open browser	http://localhost:8501
+💬 Teams Message (to share instructions)
+
+You can post this message in Teams 👇
+
+👋 Dear Team,
+Please install and test the IOC Automation Tool locally using the attached files (ioc_app.py & requirements.txt).
+
+🔧 Steps summary:
+1️⃣ Install Python 3.10+
+2️⃣ Run the commands in the guide to install dependencies
+3️⃣ Start the app with:
+streamlit run ioc_app.py
+
+Access from your browser at http://localhost:8501
+
+📁 Folder shared here: [add link or path]
